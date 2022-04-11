@@ -1,0 +1,38 @@
+.questionParent {
+  background-color: #f4f4f4;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  .questionComponent {
+    padding: 10px 0 50px 0;
+    width: 100%;
+    background-color: var(--white);
+    margin-bottom: 30px;
+    display: grid;
+    place-items: center;
+    .optionComponent {
+      display: grid;
+      place-items: center;
+      grid-template-columns: 2fr 2fr;
+      .optionsButton {
+        border: 2px solid red;
+        background-color: var(--blue);
+        border-radius: 7px;
+        padding: 10px 24px;
+        width: 318px;
+        height: 34x;
+        border: 3px solid #f4f4f4;
+        border-radius: 8px;
+        margin: 0 10px 10px 0;
+        cursor: pointer;
+        color: var(--white);
+        font-weight: bolder;
+
+        &:hover {
+          background-color: var(--blue);
+          color: var(--white);
+        }
+      }
+    }
+  }
+}
