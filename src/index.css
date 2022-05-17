@@ -1,13 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;1,100;1,200;1,300&display=swap");
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 :root {
-  --blue: #177e89;
+  --blue: #2196f3;
   --red: #db3a34;
   --green: #81c14b;
   --white: #ffffff;
-  --backgroundColor: #323031;
+  --backgroundColor: #e5e5e5;
+  --componentColor: #f4f7fc;
+  --textColor: #000;
 }
 
 * {

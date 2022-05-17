@@ -1,58 +1,84 @@
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--blue);
+  border-radius: 5px;
+}
+
 .homepageParent {
-  background-color: var(--backgroundColor);
+  // background-color: var(--backgroundColor);
   display: grid;
   place-items: center;
-  border: 2px solid red;
+  // border: 2px solid red;
   max-height: 100vh;
   width: 100%;
-  overflow-y: none;
-  overflow-x: none;
+  overflow: scroll;
+  overflow-x: hidden;
   position: relative;
-  .quizHeader {
-    // background-color: var(--white);
-    height: 8vh;
-    width: 80%;
-    display: grid;
-    place-items: center;
+  background-color: var(--white);
+  .quizHeaderParent {
+    width: 100%;
+    height: 60px;
+    background-color: var(--blue);
+    display: flex;
     justify-content: center;
-    color: var(--white);
-    font-weight: bolder;
+    align-items: center;
+    color: var(--textColor);
     position: fixed;
     top: 0;
+    .quizHeader {
+      height: 100%;
+      width: 80%;
+      display: grid;
+      place-items: center;
+      justify-content: center;
+      color: var(--textColor);
+      font-weight: bolder;
+    }
   }
 
   .quizComponentDiv {
-    margin-top: 8vh;
-    background-color: #554348;
-    border: 2px solid blue;
+    // border: 2px solid blue;
+    // overflow: hidden;
     width: 80%;
-    max-height: 92vh;
-    overflow: scroll;
+    max-height: calc(100vh - 70px);
+    margin-top: 70px;
 
     .footerParentDiv {
       display: grid;
       place-items: center;
+      width: 100%;
       .quizFooter {
-      
-        margin: 30px 0;
-        width: 80%;
+        margin-bottom: 5px;
+        width: 100%;
         display: grid;
         place-items: center;
 
         .myButton {
+          font-family: Montserrat;
+          height: 60px;
           background-color: var(--blue);
-          border-radius: 7px;
-          border: 1px solid var(--blue);
+          border-radius: 3px;
           display: inline-block;
           cursor: pointer;
           color: var(--white);
-          font-size: 16px;
-          padding: 11px 76px;
+          font-size: 18px;
           text-decoration: none;
           text-shadow: 0px 1px 0px var(--blue);
-          width: 80%;
+          width: 100%;
           font-weight: bolder;
           text-align: center;
+          outline: none;
+          border: none;
         }
         // .myButton:hover {
         //   background-color: #5cbf2a;
@@ -62,6 +88,29 @@
           // border: 2px solid red;
           position: relative;
           top: 1px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .homepageParent {
+    .quizComponentDiv {
+      // border: 3px solid red;
+      width: 100%;
+      // border: 2px solid green;
+      .footerParentDiv {
+        // border: 2px solid blue;
+        .quizFooter {
+          margin-bottom: 2px;
+          width: 100%;
+          .myButton {
+            width: 100%;
+            height: 50px;
+            // border: 2px solid blue;
+            border-radius: 0;
+          }
         }
       }
     }

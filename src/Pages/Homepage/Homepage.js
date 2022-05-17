@@ -2,25 +2,27 @@ import React, { useEffect, useState } from "react";
 import { getQuestions } from "../../component/FetchQuestions/fetchQuestions";
 import Question from "../../component/Question/Question";
 import styles from "./homepage.module.scss";
+import ScrollToTop from "react-scroll-to-top";
 
 const Homepage = () => {
   const [quiz, setQuiz] = useState([]);
   const [isSubmiited, setIsSubmitted] = useState(false);
   const [countScore, setCountScore] = useState(0);
   const [counted, setCounted] = useState([]);
+  const [quizLength, setquizLength] = useState([]);
 
   // using use effect and a recursion function to fetch the question and save it to a state
   useEffect(() => {
     (async () => {
       const quiz = await getQuestions();
       setQuiz(quiz);
+      setquizLength(quiz.length);
     })();
   }, []);
 
   //A function that count scores
   // identifier is the question id
   const countRightAnswers = (selectedAnswer, correctAnswer, identifier) => {
-    console.log(selectedAnswer, correctAnswer);
     // if selected answer is correct
     if (selectedAnswer === correctAnswer) {
       if (counted.includes(identifier)) return;
@@ -37,14 +39,14 @@ const Homepage = () => {
     }
   };
 
-  console.log(countScore, "yes");
-  console.log(counted);
-
   return (
     <div className={styles.homepageParent}>
-      <div className={styles.quizHeader}>
-        <h2> Trivial Questions</h2>
+      <div className={styles.quizHeaderParent}>
+        <div className={styles.quizHeader}>
+          <h2> Trivial Questions</h2>
+        </div>
       </div>
+
       <div className={styles.quizComponentDiv}>
         {quiz.map((quiz, index) => (
           <Question
@@ -53,23 +55,21 @@ const Homepage = () => {
             quizOption={quiz}
             isSubmiited={isSubmiited}
             countRightAnswers={countRightAnswers}
+            quizLength={quizLength}
           />
         ))}
         <div className={styles.footerParentDiv}>
-          {
-            //The submit button show up when the
-            //quiz array has finished loading
-          }
+          {}
           {quiz.length > 0 && (
             <div className={styles.quizFooter}>
               <button
                 className={styles.myButton}
                 onClick={() => {
                   setIsSubmitted(true);
-                  window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
               >
                 Submit
+                <ScrollToTop smooth top={20} />
               </button>
             </div>
           )}
